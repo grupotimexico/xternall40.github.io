@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xternall 40 | Control de jornada simple y fácil</title>
+<meta name="description" content="Organiza horarios, revisa horas extra y conserva evidencia de jornada. Conoce Xternall 40 y solicita una demo para tu empresa.">
+<meta property="og:title" content="Xternall 40 · Control de jornada simple y fácil">
+<meta property="og:description" content="Horarios registrados. Horas extra identificadas. Evidencia disponible.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Xternall 40 · Control de jornada simple y fácil">
+<meta name="twitter:description" content="Horarios registrados. Horas extra identificadas. Evidencia disponible.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/xternall-ui.css">
+<link rel="stylesheet" href="css/blocks.css">
+</head>
+<body>
+
+<!-- Íconos (estilo lineal, 24px) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5M9 8V2M15 8V2M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 12-8 12s-8-7-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-factory" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1M12 18h1M7 18h1"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v2M14 2v2M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M8 11h6"/></symbol>
+    <symbol id="i-archive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="5" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"/></symbol>
+    <symbol id="i-file-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></symbol>
+    <symbol id="i-timer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2h4M12 14l3-3"/><circle cx="12" cy="14" r="8"/></symbol>
+    <symbol id="i-calendar-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M10 14l4 4M14 14l-4 4"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/><path d="M12 7v4M12 14h.01"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5M12 7v5l4 2"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5M3 12a9 3 0 0 0 18 0"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="currentColor"><path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v.4l-10 6.1L2 6.9v-.4Z"/><path d="M2 9.2V17.5A2.5 2.5 0 0 0 4.5 20h15a2.5 2.5 0 0 0 2.5-2.5V9.2l-9.5 5.8a1 1 0 0 1-1 0L2 9.2Z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8Z"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4V21H3V9.75Zm6.5 0h3.8v1.55h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-4.95c0-1.18-.02-2.7-1.65-2.7-1.65 0-1.9 1.29-1.9 2.62V21h-4V9.75Z"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.87.25-1.46 1.5-1.46h1.55V4.47A20.6 20.6 0 0 0 14.3 4.3c-2.25 0-3.8 1.37-3.8 3.9v2.3H8v3h2.5V21h3Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-arrow-circle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm.7 5.3 4 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-1.4-1.4l2.3-2.3H7.5a1 1 0 1 1 0-2h6.1l-2.3-2.3a1 1 0 0 1 1.4-1.4Z"/></symbol>
+    <symbol id="i-chevron-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7.5 10 4.5 4.5 4.5-4.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<a class="x-skip" href="#contenido">Ir al contenido</a>
+
+<!-- BLOQUE: header (homologado con el menú de xternall.com) -->
+<header class="x-header" data-header>
+  <div class="x-container x-header__inner">
+    <a class="x-logo" href="https://xternall.com/" aria-label="Ir a xternall.com">
+      <img src="assets/xternall-logo.svg" alt="Xternall" width="188" height="39">
+      <span class="x-logo__tag">40</span>
+    </a>
+    <button class="x-menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal" data-menu-toggle>
+      <svg class="x-menu-btn__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg class="x-menu-btn__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <nav class="x-nav" id="menu-principal" aria-label="Navegación principal" data-open="false">
+      <ul class="x-nav__list">
+        <li><a href="#producto">Cómo funciona</a></li>
+        <li><a href="#operacion">Para tu equipo</a></li>
+        <li><a href="#preguntas">Preguntas frecuentes</a></li>
+        <li class="x-nav__has-sub">
+          <button class="x-nav__sub-toggle" type="button" aria-expanded="false" aria-controls="sub-soluciones">Otras Soluciones<span class="x-nav__chev"><svg><use href="#i-chevron"/></svg></span></button>
+          <ul class="x-nav__sub" id="sub-soluciones">
+            <li><a href="https://xternall.com/repse-y-cumplimiento/">REPSE y Cumplimiento <svg><use href="#i-arrow-circle"/></svg></a></li>
+            <li><a href="https://xternall.com/portal-de-proveedores/">Portal de Proveedores <svg><use href="#i-arrow-circle"/></svg></a></li>
+            <li><a href="https://xternall.com/contracts/">Contracts <svg><use href="#i-arrow-circle"/></svg></a></li>
+            <li><a href="https://xternall.com/prevencion-de-riesgo-fiscal/">Prevención de Riesgo Fiscal <svg><use href="#i-arrow-circle"/></svg></a></li>
+            <li><a href="https://xternall.com/validacion-fiscal-de-proveedores-de-riesgo/">Validación Fiscal <svg><use href="#i-arrow-circle"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="x-nav__cta"><a class="x-btn x-btn--primary" href="#solicitar-demo">Agenda una DEMO</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- BLOQUE: hero-form -->
+  <section class="x-hero x-hero--duotone b-hero" id="inicio" style="background-image: url('assets/bg-particles.svg'), url('assets/hero40-bg.jpg')">
+    <div class="x-container b-hero__grid">
+      <div class="b-hero__copy x-on-dark">
+        <p class="x-eyebrow">MÁS CLARIDAD EN CADA JORNADA</p>
+        <h1 class="x-display">Control de jornada<br><strong>simple y fácil.</strong></h1>
+        <p class="b-hero__law">Prepárate para la reforma de 40 horas.</p>
+        <p class="b-hero__desc">Acompaña la reducción gradual de la jornada con información organizada y evidencia disponible de tus colaboradores.</p>
+        <ul class="x-checklist">
+          <li>Horarios registrados.</li>
+          <li>Horas extra identificadas.</li>
+          <li>Evidencia lista para consultar.</li>
+        </ul>
+        <p class="b-hero__connect"><svg class="x-ico"><use href="#i-plug"/></svg>Se conecta a tu nómina y ERP.</p>
+        <div class="b-hero__cta">
+          <a class="x-btn x-btn--ghost-light" href="#producto">Explora el sistema <svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+
+      <div class="b-demo" id="solicitar-demo">
+        <p class="x-eyebrow">DEMO PERSONALIZADA</p>
+        <h2 class="x-h4">Conoce Xternall 40</h2>
+        <p class="b-demo__intro">Descubre cómo llevar el control de jornada en tu empresa.</p>
+        <!-- Envío al CRM: la configuración (endpoint y api-key) está en js/blocks.js → "CONFIGURACIÓN CRM" -->
+        <form class="b-demo__form" data-demo-form novalidate>
+          <div class="x-field"><label class="x-label" for="demo-name">Nombre completo</label><input class="x-input" id="demo-name" name="name" placeholder="Tu nombre" autocomplete="name" required></div>
+          <div class="x-field"><label class="x-label" for="demo-email">Correo de trabajo</label><input class="x-input" id="demo-email" name="email" type="email" placeholder="nombre@empresa.com" autocomplete="email" required></div>
+          <div class="x-field"><label class="x-label" for="demo-company">Empresa</label><input class="x-input" id="demo-company" name="company" placeholder="Nombre de tu empresa" autocomplete="organization" required></div>
+          <div class="x-field"><label class="x-label" for="demo-size">Número de colaboradores <small>(opcional)</small></label>
+            <select class="x-select" id="demo-size" name="size">
+              <option value="">Selecciona un rango</option>
+              <option value="1–50">1–50</option>
+              <option value="51–200">51–200</option>
+              <option value="201–500">201–500</option>
+              <option value="501–1,000">501–1,000</option>
+              <option value="Más de 1,000">Más de 1,000</option>
+            </select>
+          </div>
+          <div class="b-demo__honeypot" aria-hidden="true"><label>Sitio web<input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <label class="x-check"><input type="checkbox" name="consent" id="demo-consent"> Quiero que Xternall me contacte sobre una demo.</label>
+          <button class="x-btn x-btn--primary x-btn--block" type="submit" data-label="Solicitar DEMO">Solicitar DEMO</button>
+          <p class="b-demo__error" role="alert" hidden></p>
+          <p class="x-form-note">Solo los datos necesarios para conocer tu operación.</p>
+        </form>
+        <div class="b-demo__success" role="status" hidden>
+          <span class="x-icon"><svg><use href="#i-check-circle"/></svg></span>
+          <strong>Tu solicitud quedó registrada.</strong>
+          <p>Guardamos tus datos para dar seguimiento a la demo.</p>
+          <p class="x-small" data-folio hidden>Folio: <b></b></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE: strip -->
+  <div class="x-overlap b-strip">
+    <span>Una sola visión de las jornadas de tu equipo.</span>
+    <div class="b-strip__items">
+      <span><svg class="x-ico"><use href="#i-building"/></svg>Oficina</span>
+      <span><svg class="x-ico"><use href="#i-pin"/></svg>Campo</span>
+      <span><svg class="x-ico"><use href="#i-factory"/></svg>Planta</span>
+    </div>
+  </div>
+
+  <!-- BLOQUE: product-demo -->
+  <section class="x-section" id="producto">
+    <div class="x-container">
+      <div class="x-section-head">
+        <p class="x-eyebrow">VE LO QUE PASA. ACTÚA CON CLARIDAD.</p>
+        <h2 class="x-h2">Así de claro puede ser<br>el control de tu equipo.</h2>
+        <p class="x-lead">Una vista para saber quién registró su jornada, qué requiere atención y dónde está la evidencia.</p>
+      </div>
+
+      <div class="b-window">
+        <div class="b-window__head">
+          <div class="b-window__title">
+            <span class="b-window__mark"><img src="assets/favicon.svg" alt=""></span>
+            <span><strong>Control de jornadas</strong><small>Equipo de ejemplo · 4 colaboradores</small></span>
+          </div>
+          <span class="x-badge">Demostración interactiva</span>
+        </div>
+        <div class="b-window__body" data-tabs>
+          <div class="b-window__toolbar">
+            <div class="x-tabs" role="tablist" aria-label="Vistas del control de jornada">
+              <button class="x-tab" role="tab" id="tab-today" aria-controls="panel-today" aria-selected="true">Hoy</button>
+              <button class="x-tab" role="tab" id="tab-week" aria-controls="panel-week" aria-selected="false" tabindex="-1">Semana</button>
+              <button class="x-tab" role="tab" id="tab-evidence" aria-controls="panel-evidence" aria-selected="false" tabindex="-1">Evidencia</button>
+            </div>
+            <span class="b-window__hint">Selecciona un colaborador para ver el detalle</span>
+          </div>
+
+          <div role="tabpanel" id="panel-today" aria-labelledby="tab-today">
+            <div class="b-table-wrap">
+              <table class="b-table">
+                <thead><tr><th>Colaborador</th><th>Entrada</th><th>Salida</th><th>Tiempo neto</th><th>Estado</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><button class="x-person" type="button" data-person="lm"><span class="x-avatar">LM</span><span><span class="x-person__name">Laura Méndez</span><span class="x-person__role">Administración</span></span></button></td>
+                    <td>09:00</td><td>18:00</td><td>8 h</td><td><span class="x-badge x-badge--success">Registro completo</span></td>
+                  </tr>
+                  <tr>
+                    <td><button class="x-person" type="button" data-person="cr"><span class="x-avatar x-avatar--blue">CR</span><span><span class="x-person__name">Carlos Ruiz</span><span class="x-person__role">Operaciones</span></span></button></td>
+                    <td>08:00</td><td>18:00</td><td>9 h</td><td><span class="x-badge x-badge--warning">Revisar 2 h extra</span></td>
+                  </tr>
+                  <tr>
+                    <td><button class="x-person" type="button" data-person="at"><span class="x-avatar x-avatar--soft">AT</span><span><span class="x-person__name">Ana Torres</span><span class="x-person__role">Servicio en campo</span></span></button></td>
+                    <td>08:30</td><td>Sin registro</td><td>Por completar</td><td><span class="x-badge x-badge--warning">Salida pendiente</span></td>
+                  </tr>
+                  <tr>
+                    <td><button class="x-person" type="button" data-person="ms"><span class="x-avatar">MS</span><span><span class="x-person__name">Miguel Santos</span><span class="x-person__role">Producción</span></span></button></td>
+                    <td>07:00</td><td>16:00</td><td>8 h</td><td><span class="x-badge x-badge--success">Registro completo</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div role="tabpanel" id="panel-week" aria-labelledby="tab-week" hidden>
+            <div class="b-week">
+              <div class="b-week__row">
+                <button class="x-person" type="button" data-person="lm"><span class="x-avatar">LM</span><span><span class="x-person__name">Laura Méndez</span><span class="x-person__role">Administración</span></span></button>
+                <div class="b-week__track"><span style="width:83.33%"></span></div>
+                <strong>40 h</strong><span class="x-badge x-badge--success">Registro completo</span>
+              </div>
+              <div class="b-week__row">
+                <button class="x-person" type="button" data-person="cr"><span class="x-avatar x-avatar--blue">CR</span><span><span class="x-person__name">Carlos Ruiz</span><span class="x-person__role">Operaciones</span></span></button>
+                <div class="b-week__track"><span class="amber" style="width:87.5%"></span></div>
+                <strong>42 h</strong><span class="x-badge x-badge--warning">Revisar 2 h extra</span>
+              </div>
+              <div class="b-week__row">
+                <button class="x-person" type="button" data-person="at"><span class="x-avatar x-avatar--soft">AT</span><span><span class="x-person__name">Ana Torres</span><span class="x-person__role">Servicio en campo</span></span></button>
+                <div class="b-week__track"><span class="amber" style="width:66.67%"></span></div>
+                <strong>32 h</strong><span class="x-badge x-badge--warning">Salida pendiente</span>
+              </div>
+              <div class="b-week__row">
+                <button class="x-person" type="button" data-person="ms"><span class="x-avatar">MS</span><span><span class="x-person__name">Miguel Santos</span><span class="x-person__role">Producción</span></span></button>
+                <div class="b-week__track"><span style="width:83.33%"></span></div>
+                <strong>40 h</strong><span class="x-badge x-badge--success">Registro completo</span>
+              </div>
+            </div>
+            <p class="b-note">Referencia del ejemplo: 40 h semanales. Las pausas de 1 h se excluyen del tiempo neto.</p>
+          </div>
+
+          <div role="tabpanel" id="panel-evidence" aria-labelledby="tab-evidence" hidden>
+            <div class="b-evidence">
+              <div>
+                <span class="x-icon"><svg><use href="#i-file-check"/></svg></span>
+                <h4>Registros de jornada</h4>
+                <p>Entradas, salidas, pausas y origen de la información.</p>
+                <span class="x-badge x-badge--success">Disponible en el ejemplo</span>
+              </div>
+              <div>
+                <span class="x-icon"><svg><use href="#i-message"/></svg></span>
+                <h4>Incidencias y revisiones</h4>
+                <p>Motivo, responsable y resolución de cada diferencia.</p>
+                <span class="x-badge x-badge--warning">2 casos por revisar</span>
+              </div>
+              <div>
+                <span class="x-icon"><svg><use href="#i-history"/></svg></span>
+                <h4>Historial de cambios</h4>
+                <p>Conserva el contexto de cada ajuste realizado.</p>
+                <span class="x-badge x-badge--success">Trazabilidad visible</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="b-window__foot"><svg class="x-ico"><use href="#i-info"/></svg>Datos ficticios para explorar el funcionamiento. El alcance se define en la demo.</div>
+      </div>
+    </div>
+
+    <!-- Datos de cada colaborador para el diálogo -->
+    <template id="person-lm" data-name="Laura Méndez" data-week="40" data-state="Registro completo" data-tone="success" data-entry="09:00" data-exit="18:00">Entradas, salidas y pausas registradas de lunes a viernes. Sin diferencias respecto al horario de ejemplo.</template>
+    <template id="person-cr" data-name="Carlos Ruiz" data-week="42" data-state="Revisar 2 h extra" data-tone="warning" data-entry="08:00" data-exit="18:00">Dos horas adicionales respecto al horario semanal de ejemplo. El responsable puede revisar el motivo y documentar su resolución.</template>
+    <template id="person-at" data-name="Ana Torres" data-week="32" data-state="Salida pendiente" data-tone="warning" data-entry="08:30" data-exit="Sin registro">Falta el registro de salida del viernes. La incidencia permanece visible hasta completar y revisar la información.</template>
+    <template id="person-ms" data-name="Miguel Santos" data-week="40" data-state="Registro completo" data-tone="success" data-entry="07:00" data-exit="16:00">Semana completa conforme al horario de ejemplo. Incluye una hora de pausa por día, excluida del tiempo mostrado.</template>
+
+    <dialog class="b-dialog" id="person-dialog" aria-labelledby="person-dialog-title">
+      <div class="b-dialog__inner">
+        <button class="b-dialog__close" type="button" aria-label="Cerrar" data-dialog-close><svg class="x-ico"><use href="#i-x"/></svg></button>
+        <h3 id="person-dialog-title">Jornada de <span data-f="name"></span></h3>
+        <p class="b-dialog__sub">Datos ilustrativos · Semana de ejemplo</p>
+        <div class="b-dialog__total"><strong><span data-f="week"></span> h</strong><span>registradas en la semana</span></div>
+        <span class="x-badge" data-f="state"></span>
+        <p class="b-dialog__detail" data-f="detail"></p>
+        <div class="b-dialog__times">
+          <span><svg class="x-ico"><use href="#i-login"/></svg>Entrada <b data-f="entry"></b></span>
+          <span><svg class="x-ico"><use href="#i-pause"/></svg>Pausa <b>1 h</b></span>
+          <span><svg class="x-ico"><use href="#i-logout"/></svg>Salida <b data-f="exit"></b></span>
+        </div>
+        <p class="b-dialog__legal">El ejemplo usa un horario de referencia de 40 horas. No determina por sí solo el cumplimiento legal.</p>
+      </div>
+    </dialog>
+  </section>
+
+  <!-- BLOQUE: steps -->
+  <section class="x-section x-section--grid x-section--curved" id="registro">
+    <div class="x-container">
+      <div class="x-split-head">
+        <div>
+          <p class="x-eyebrow">DEL REGISTRO A LA REVISIÓN</p>
+          <h2 class="x-h2">Fácil para tu equipo.<br><span class="x-h-accent">Visible para ti.</span></h2>
+        </div>
+        <p>Un proceso claro desde la captura hasta el cierre. En la demo definimos cómo aprovechar los registros y sistemas de tu empresa.</p>
+      </div>
+      <div class="b-steps">
+        <article class="x-card x-card--hover b-step">
+          <div class="b-step__top"><span class="x-icon"><svg><use href="#i-users"/></svg></span><span class="b-step__num">01</span></div>
+          <small>COLABORADOR / SISTEMA</small>
+          <h3 class="x-title-card">Reúne los registros</h3>
+          <p>Identifica entradas, salidas y pausas a partir de las fuentes acordadas.</p>
+        </article>
+        <article class="x-card x-card--hover b-step">
+          <div class="b-step__top"><span class="x-icon"><svg><use href="#i-search"/></svg></span><span class="b-step__num">02</span></div>
+          <small>RESPONSABLE</small>
+          <h3 class="x-title-card">Revisa las diferencias</h3>
+          <p>Da contexto a los olvidos, ajustes y horas adicionales.</p>
+        </article>
+        <article class="x-card x-card--hover b-step">
+          <div class="b-step__top"><span class="x-icon"><svg><use href="#i-archive"/></svg></span><span class="b-step__num">03</span></div>
+          <small>EMPRESA</small>
+          <h3 class="x-title-card">Conserva el respaldo</h3>
+          <p>Organiza la jornada y su historial para consultar la información.</p>
+        </article>
+      </div>
+      <p class="b-callout"><svg class="x-ico"><use href="#i-plug"/></svg>Revisamos contigo las opciones de captura y conexión que aplican a tu operación.</p>
+    </div>
+  </section>
+
+  <!-- BLOQUE: attention -->
+  <section class="x-section">
+    <div class="x-container">
+      <div class="x-split-head">
+        <div>
+          <p class="x-eyebrow">ATENCIÓN DONDE HACE FALTA</p>
+          <h2 class="x-h2">Detecta lo que<br>necesita atención.</h2>
+        </div>
+        <p>Las diferencias tienen nombre, contexto y una siguiente acción. Así puedes revisarlas antes de cerrar la semana.</p>
+      </div>
+      <div class="b-attention">
+        <article class="x-alert x-alert--danger">
+          <span class="x-icon"><svg><use href="#i-logout"/></svg></span>
+          <h3 class="x-title-card">Falta una salida</h3>
+          <p>Un registro incompleto no se pierde entre los demás.</p>
+          <span class="b-attention__action"><svg class="x-ico"><use href="#i-arrow"/></svg>Solicitar aclaración</span>
+        </article>
+        <article class="x-alert">
+          <span class="x-icon"><svg><use href="#i-timer"/></svg></span>
+          <h3 class="x-title-card">Hay horas adicionales</h3>
+          <p>Compara el tiempo registrado con el horario de referencia.</p>
+          <span class="b-attention__action"><svg class="x-ico"><use href="#i-arrow"/></svg>Revisar motivo y autorización</span>
+        </article>
+        <article class="x-alert x-alert--info">
+          <span class="x-icon"><svg><use href="#i-calendar-x"/></svg></span>
+          <h3 class="x-title-card">El horario no coincide</h3>
+          <p>Identifica diferencias contra la jornada o turno asignado.</p>
+          <span class="b-attention__action"><svg class="x-ico"><use href="#i-arrow"/></svg>Verificar el registro</span>
+        </article>
+        <article class="x-alert x-alert--info">
+          <span class="x-icon"><svg><use href="#i-alert"/></svg></span>
+          <h3 class="x-title-card">Una incidencia sigue abierta</h3>
+          <p>Conserva el responsable y el contexto del seguimiento.</p>
+          <span class="b-attention__action"><svg class="x-ico"><use href="#i-arrow"/></svg>Documentar la resolución</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE: scenarios -->
+  <section class="x-section x-section--ice x-section--curved" id="operacion">
+    <div class="x-container">
+      <div class="x-section-head">
+        <p class="x-eyebrow">TU OPERACIÓN ES EL PUNTO DE PARTIDA</p>
+        <h2 class="x-h2">Distintas formas de trabajar.<br>La misma claridad.</h2>
+        <p class="x-lead">Explora un escenario cercano al de tu equipo.</p>
+      </div>
+      <div class="b-scenarios" data-tabs>
+        <div class="x-tabs" role="tablist" aria-label="Tipo de operación">
+          <button class="x-tab" role="tab" id="tab-office" aria-controls="panel-office" aria-selected="true"><svg class="x-ico"><use href="#i-building"/></svg>Oficina</button>
+          <button class="x-tab" role="tab" id="tab-field" aria-controls="panel-field" aria-selected="false" tabindex="-1"><svg class="x-ico"><use href="#i-pin"/></svg>Campo</button>
+          <button class="x-tab" role="tab" id="tab-plant" aria-controls="panel-plant" aria-selected="false" tabindex="-1"><svg class="x-ico"><use href="#i-factory"/></svg>Planta</button>
+        </div>
+
+        <div role="tabpanel" id="panel-office" aria-labelledby="tab-office">
+          <div class="x-card b-scenario">
+            <div>
+              <h3 class="x-h4">Visibilidad para equipos presenciales e híbridos.</h3>
+              <p>Reúne horarios y registros en una misma vista. Identifica diferencias sin reconstruir cada semana en hojas de cálculo.</p>
+              <div class="b-tags"><span><svg class="x-ico"><use href="#i-check"/></svg>Horarios de equipo</span><span><svg class="x-ico"><use href="#i-check"/></svg>Pausas</span><span><svg class="x-ico"><use href="#i-check"/></svg>Resumen semanal</span></div>
+            </div>
+            <div class="b-example">
+              <p class="x-eyebrow">EJEMPLO · OFICINA</p>
+              <div class="b-example__person"><span class="x-avatar">LM</span><div><strong>Laura Méndez</strong><small>Administración</small></div></div>
+              <div class="b-example__schedule"><span>Horario de referencia</span><strong>09:00–18:00</strong></div>
+              <div class="b-example__result"><svg class="x-ico"><use href="#i-check-circle"/></svg><span><strong>8 h netas registradas</strong><small>Una pausa de 1 h documentada.</small></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div role="tabpanel" id="panel-field" aria-labelledby="tab-field" hidden>
+          <div class="x-card b-scenario">
+            <div>
+              <h3 class="x-h4">El contexto también forma parte de la jornada.</h3>
+              <p>Da seguimiento a los registros de quienes trabajan fuera de la oficina y conserva las incidencias que requieren revisión.</p>
+              <div class="b-tags"><span><svg class="x-ico"><use href="#i-check"/></svg>Registros por colaborador</span><span><svg class="x-ico"><use href="#i-check"/></svg>Incidencias</span><span><svg class="x-ico"><use href="#i-check"/></svg>Seguimiento</span></div>
+            </div>
+            <div class="b-example">
+              <p class="x-eyebrow">EJEMPLO · CAMPO</p>
+              <div class="b-example__person"><span class="x-avatar x-avatar--soft">AT</span><div><strong>Ana Torres</strong><small>Servicio en campo</small></div></div>
+              <div class="b-example__schedule"><span>Incidencia de ejemplo</span><strong>08:30–17:30</strong></div>
+              <div class="b-example__result amber"><svg class="x-ico"><use href="#i-alert"/></svg><span><strong>Salida pendiente de registrar</strong><small>Solicitar aclaración y documentar la revisión.</small></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div role="tabpanel" id="panel-plant" aria-labelledby="tab-plant" hidden>
+          <div class="x-card b-scenario">
+            <div>
+              <h3 class="x-h4">Control por turno, con atención a las diferencias.</h3>
+              <p>Relaciona los registros con el turno asignado y revisa el tiempo adicional antes del cierre de la semana.</p>
+              <div class="b-tags"><span><svg class="x-ico"><use href="#i-check"/></svg>Turnos</span><span><svg class="x-ico"><use href="#i-check"/></svg>Horas adicionales</span><span><svg class="x-ico"><use href="#i-check"/></svg>Cierre semanal</span></div>
+            </div>
+            <div class="b-example">
+              <p class="x-eyebrow">EJEMPLO · PLANTA</p>
+              <div class="b-example__person"><span class="x-avatar">MS</span><div><strong>Miguel Santos</strong><small>Producción · Turno de día</small></div></div>
+              <div class="b-example__schedule"><span>Turno de referencia</span><strong>07:00–16:00</strong></div>
+              <div class="b-example__result"><svg class="x-ico"><use href="#i-check-circle"/></svg><span><strong>Jornada documentada</strong><small>Entradas, salidas y una pausa de 1 h.</small></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE: evidence-timeline -->
+  <section class="x-section" id="cuarenta-horas">
+    <div class="x-container b-evidence-split">
+      <div>
+        <p class="x-eyebrow">CONTROL HOY. PREPARACIÓN PARA LO QUE SIGUE.</p>
+        <h2 class="x-h2">Que cada jornada<br><span class="x-h-accent">tenga respaldo.</span></h2>
+        <p>La transición a las 40 horas es gradual. Empieza por ordenar tus horarios, revisar desviaciones y conservar la evidencia de cada jornada.</p>
+        <div class="b-points">
+          <span><svg class="x-ico"><use href="#i-clock"/></svg>Registros de entrada y salida</span>
+          <span><svg class="x-ico"><use href="#i-file-check"/></svg>Incidencias y autorizaciones</span>
+          <span><svg class="x-ico"><use href="#i-history"/></svg>Historial de ajustes y revisión</span>
+        </div>
+        <a class="b-source" href="https://sidof.segob.gob.mx/notas/docFuente/5786537" target="_blank" rel="noopener noreferrer">Consultar reforma en el DOF · 1 de mayo de 2026 <svg class="x-ico"><use href="#i-external"/></svg></a>
+      </div>
+      <div class="x-card b-timeline">
+        <p class="x-eyebrow">REDUCCIÓN GRADUAL EN MÉXICO</p>
+        <h3 class="x-h4">Un camino hacia las 40 horas.</h3>
+        <div class="x-hours" role="img" aria-label="48 horas en 2026, 46 en 2027, 44 en 2028, 42 en 2029 y 40 en 2030">
+          <div class="x-hours__bar" style="height:100%"><strong>48<small> h</small></strong></div>
+          <div class="x-hours__bar" style="height:92%"><strong>46<small> h</small></strong></div>
+          <div class="x-hours__bar" style="height:84%"><strong>44<small> h</small></strong></div>
+          <div class="x-hours__bar" style="height:76%"><strong>42<small> h</small></strong></div>
+          <div class="x-hours__bar x-hours__bar--goal" style="height:68%"><strong>40<small> h</small></strong></div>
+        </div>
+        <div class="x-hours__years" aria-hidden="true"><span>2026</span><span>2027</span><span>2028</span><span>2029</span><span>2030</span></div>
+        <p class="b-note">Horas máximas ordinarias semanales del calendario de transición. Las reglas diarias y el tiempo extraordinario requieren su propia revisión.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE: integration -->
+  <section class="x-section x-section--soft x-section--curved">
+    <div class="x-container">
+      <div class="x-section-head">
+        <p class="x-eyebrow">SUMA CONTROL A LO QUE YA UTILIZAS</p>
+        <h2 class="x-h2">Encaja en tu empresa.<br><span class="x-h-accent">Acompaña a tu equipo.</span></h2>
+        <p class="x-lead">Conexiones y alcance definidos a partir de tus fuentes de información.</p>
+      </div>
+      <div class="b-flow">
+        <div class="b-flow__node"><span class="x-icon"><svg><use href="#i-users"/></svg></span><strong>Tu operación</strong><span>Horarios y colaboradores</span></div>
+        <span class="b-flow__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+        <div class="b-flow__node b-flow__node--brand">
+          <span class="x-logo" aria-label="Xternall 40"><img src="assets/xternall-logo-white.svg" alt="Xternall" width="188" height="39"><span class="x-logo__tag">40</span></span>
+          <span>Control y evidencia</span>
+        </div>
+        <span class="b-flow__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+        <div class="b-flow__node"><span class="x-icon"><svg><use href="#i-database"/></svg></span><strong>Nómina y ERP</strong><span>Conexión según alcance</span></div>
+      </div>
+      <ol class="x-steps b-setup">
+        <li>Revisamos tus horarios</li>
+        <li>Definimos las fuentes</li>
+        <li>Incorporamos al equipo</li>
+        <li>Comenzamos el seguimiento</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- BLOQUE: faq -->
+  <section class="x-section" id="preguntas">
+    <div class="x-container b-faq">
+      <div class="b-faq__intro">
+        <p class="x-eyebrow">ANTES DE EMPEZAR</p>
+        <h2 class="x-h2">Resolvamos<br><span class="x-h-accent">tus dudas.</span></h2>
+        <p>La demo también es para revisar los casos particulares de tu empresa.</p>
+        <a class="x-btn x-btn--outline" href="#solicitar-demo">Hablemos de tu operación</a>
+      </div>
+      <div class="x-faq">
+        <details><summary>¿Cómo registran la jornada los colaboradores?</summary><div class="x-faq__body">El punto de partida son los registros de tu operación. En la demo revisamos las opciones de captura, los sistemas que ya utilizas y las fuentes que se pueden conectar. Así definimos el flujo adecuado para tu equipo.</div></details>
+        <details><summary>¿Xternall 40 sustituye a mi nómina o ERP?</summary><div class="x-faq__body">Xternall 40 funciona como una capa de control de jornadas y evidencia. La nómina y el ERP conservan su función; las conexiones y el intercambio de información se definen según tus sistemas y el alcance contratado.</div></details>
+        <details><summary>¿Qué sucede si alguien olvida registrar su salida?</summary><div class="x-faq__body">El registro incompleto se identifica como una incidencia. El flujo propuesto permite solicitar la corrección y conservar el motivo, el responsable y la revisión, sin perder la trazabilidad del ajuste.</div></details>
+        <details><summary>¿Cómo se revisan las horas extra?</summary><div class="x-faq__body">Se comparan los registros con los horarios configurados y se identifican diferencias para revisión. Su autorización y tratamiento en nómina dependen de las políticas y reglas aplicables a cada caso.</div></details>
+        <details><summary>¿Se pueden considerar distintos turnos y formas de trabajo?</summary><div class="x-faq__body">En la demo revisamos horarios, pausas, turnos y escenarios de oficina, campo o planta. El alcance y las reglas se acuerdan a partir de tu operación, incluyendo los casos especiales que necesites controlar.</div></details>
+        <details><summary>¿Quién puede consultar los registros?</summary><div class="x-faq__body">Los perfiles de acceso se definen según las responsabilidades de cada equipo. En la demo podemos revisar qué debe consultar el colaborador, el supervisor y las áreas responsables.</div></details>
+        <details><summary>¿Cuánto cuesta y qué necesito para empezar?</summary><div class="x-faq__body">La propuesta se prepara según el número de colaboradores, las fuentes de información y el alcance de implementación. Para comenzar, basta con identificar tus horarios actuales y los sistemas donde registras las jornadas.</div></details>
+        <details><summary>¿Tener el sistema garantiza el cumplimiento de la ley?</summary><div class="x-faq__body">La herramienta ayuda a organizar registros, detectar desviaciones y conservar evidencia. El cumplimiento también depende de los horarios, las decisiones y la operación de la empresa, así como de las disposiciones aplicables.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE: closing -->
+  <section class="x-section--blue x-section--curved b-closing">
+    <div class="x-container x-on-dark">
+      <p class="x-eyebrow">DA EL SIGUIENTE PASO</p>
+      <h2 class="x-h2">Ve cómo funcionaría<br>con los horarios de tu empresa.</h2>
+      <p class="x-lead">Conoce el flujo, revisa tus escenarios y define el alcance que necesitas.</p>
+      <a class="x-btn x-btn--white" href="#solicitar-demo">Agenda una DEMO <svg><use href="#i-arrow"/></svg></a>
+    </div>
+  </section>
+
+</main>
+
+<!-- BLOQUE: footer (homologado con xternall.com) -->
+<footer class="b-footer">
+  <div class="b-footer__top">
+    <div class="x-container b-footer__top-inner">
+      <a class="b-footer__logo" href="https://xternall.com/" aria-label="Xternall"><img src="assets/xternall-logo.svg" alt="Xternall" width="188" height="39"></a>
+      <span class="b-footer__product">Control preventivo de jornada.</span>
+      <ul class="b-footer__social">
+        <li><a href="https://www.linkedin.com/company/xternall/" target="_blank" rel="noopener" title="Seguir en LinkedIn" aria-label="Seguir en LinkedIn"><svg><use href="#i-linkedin"/></svg></a></li>
+        <li><a href="https://www.facebook.com/xternallmx" target="_blank" rel="noopener" title="Seguir en Facebook" aria-label="Seguir en Facebook"><svg><use href="#i-facebook"/></svg></a></li>
+        <li><a href="https://www.instagram.com/xternall_mx/?hl=es" target="_blank" rel="noopener" title="Seguir en Instagram" aria-label="Seguir en Instagram"><svg><use href="#i-instagram"/></svg></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="b-footer__main">
+    <div class="x-container">
+      <div class="b-footer__cols">
+        <div>
+          <h2 class="b-footer__title">Contacto</h2>
+          <a class="b-footer__item" href="mailto:ventas@xternall.com"><svg><use href="#i-mail"/></svg>ventas@xternall.com</a>
+          <a class="b-footer__item" href="tel:8185263220"><svg><use href="#i-phone"/></svg>81 8526 3220</a>
+        </div>
+        <div>
+          <h2 class="b-footer__title">Oficina Monterrey</h2>
+          <a class="b-footer__item" href="https://goo.gl/maps/npucZCMA5hMd8D9P9" target="_blank" rel="noopener"><svg><use href="#i-map"/></svg><span>Torres Martel, Torre 1 Piso 2<br>Humberto Junco Voigt 2307<br>Col. Valle Oriente<br>San Pedro Garza García, NL</span></a>
+          <a class="b-footer__item" href="tel:8185263220"><svg><use href="#i-phone"/></svg>81 8526 3220</a>
+        </div>
+        <div>
+          <h2 class="b-footer__title">Oficina Ciudad de México</h2>
+          <a class="b-footer__item" href="https://maps.app.goo.gl/fiYr67ZSP1kRVDyC9" target="_blank" rel="noopener"><svg><use href="#i-map"/></svg><span>Av Ejército Nacional 207,<br>Verónica Anzúres,<br>Miguel Hidalgo, 11300<br>Ciudad de México, CDMX</span></a>
+          <a class="b-footer__item" href="tel:5541725520"><svg><use href="#i-phone"/></svg>55 4172 5520</a>
+        </div>
+        <div>
+          <h2 class="b-footer__title">Oficina Guadalajara</h2>
+          <a class="b-footer__item" href="https://goo.gl/maps/hzDzuAweqrVokT8u5" target="_blank" rel="noopener"><svg><use href="#i-map"/></svg><span>Av. de las Américas<br>No. 1545 - Piso 20,<br>Providencia, 44610<br>Guadalajara, Jal.</span></a>
+          <a class="b-footer__item" href="tel:3385262820"><svg><use href="#i-phone"/></svg>33 8526 2820</a>
+        </div>
+      </div>
+      <div class="b-footer__bottom">
+        <div class="b-footer__legal">
+          <a href="https://xternall.com/aviso-de-privacidad/" target="_blank" rel="noopener">AVISO DE PRIVACIDAD</a>
+        </div>
+        <span>Copyright © 2026 Xternall S.A. de C.V</span>
+      </div>
+
+      <!-- Versión móvil (≤767px): contacto + colapsables, como en xternall.com -->
+      <div class="b-footer__mobile">
+        <div class="b-footer__mcontact">
+          <h2 class="b-footer__title">Contacto</h2>
+          <a href="mailto:ventas@xternall.com"><svg><use href="#i-mail"/></svg>ventas@xternall.com</a>
+          <a href="tel:8185263220"><svg><use href="#i-phone"/></svg>81 8526 3220</a>
+        </div>
+        <details class="b-fold" data-slide="700">
+          <summary>Oficina Monterrey<svg class="b-fold__icon"><use href="#i-chevron-circle"/></svg></summary>
+          <div class="b-fold__body">
+            <a href="https://goo.gl/maps/npucZCMA5hMd8D9P9" target="_blank" rel="noopener"><svg><use href="#i-map"/></svg><span>Torres Martel, Torre 1 Piso 2<br>Humberto Junco Voigt 2307<br>Col. Valle Oriente<br>San Pedro Garza García, NL</span></a>
+            <a href="tel:8185263220"><svg><use href="#i-phone"/></svg>81 8526 3220</a>
+          </div>
+        </details>
+        <details class="b-fold" data-slide="700">
+          <summary>Oficina Ciudad de México<svg class="b-fold__icon"><use href="#i-chevron-circle"/></svg></summary>
+          <div class="b-fold__body">
+            <a href="https://maps.app.goo.gl/fiYr67ZSP1kRVDyC9" target="_blank" rel="noopener"><svg><use href="#i-map"/></svg><span>Av Ejército Nacional 207,<br>Verónica Anzúres,<br>Miguel Hidalgo, 11300<br>Ciudad de México, CDMX</span></a>
+            <a href="tel:5541725520"><svg><use href="#i-phone"/></svg>55 4172 5520</a>
+          </div>
+        </details>
+        <details class="b-fold" data-slide="700">
+          <summary>Oficina Guadalajara<svg class="b-fold__icon"><use href="#i-chevron-circle"/></svg></summary>
+          <div class="b-fold__body">
+            <a href="https://goo.gl/maps/hzDzuAweqrVokT8u5" target="_blank" rel="noopener"><svg><use href="#i-map"/></svg><span>Av. de las Américas<br>No. 1545 - Piso 20,<br>Providencia, 44610<br>Guadalajara, Jal.</span></a>
+            <a href="tel:3385262820"><svg><use href="#i-phone"/></svg>33 8526 2820</a>
+          </div>
+        </details>
+        <details class="b-fold" data-slide="700">
+          <summary>Legales<svg class="b-fold__icon"><use href="#i-chevron-circle"/></svg></summary>
+          <div class="b-fold__body">
+            <a href="https://xternall.com/aviso-de-privacidad/" target="_blank" rel="noopener">AVISO DE PRIVACIDAD</a>
+            <p class="b-gti"><span>Grupo</span> <span class="b-gti__ti">TI</span> <span>México</span></p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+  <div class="b-footer__copybar">Copyright © 2026 Xternall S.A. de C.V</div>
+</footer>
+<script src="js/blocks.js" defer></script>
+</body>
+</html>
