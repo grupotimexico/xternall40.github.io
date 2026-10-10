@@ -133,7 +133,7 @@
   // se mandaría); publicada, el formulario muestra error y no envía nada.
   const CRM = {
     endpoint: 'https://erp.grupotimexico.com/ords/crm/api/contactos',
-    apiKey: '019dd108dd62--cde1f77a6bb56d37dc6045c2',                                   // ← pegar aquí la api-key
+    apiKey: '019dd108dd62-78968e79-cde1f77a6bb56d37dc6045c2',    // ← pegar aquí la api-key
     fijos: {                                      // valores que define el CRM
       categoria: 'Xternall',
       servicio: 'Xternall 40',
