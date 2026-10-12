@@ -230,7 +230,7 @@ section[id] { scroll-margin-top: 90px; }
 .b-footer__social a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 3px; background: var(--x-blue); color: #fff; transition: background-color var(--x-ease); }
 .b-footer__social a:hover { background: var(--x-navy); color: #fff; }
 .b-footer__social svg { width: 20px; height: 20px; }
-.b-footer__main { background: var(--x-bg-soft); padding: 36px 0 24px; }
+.b-footer__main { background: var(--x-bg-soft); padding: 0 0 24px; }
 .b-footer__cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-bottom: 28px; border-bottom: 1px solid #d2d2e0; }
 .b-footer__title { margin: 0 0 18px; font-size: 16px; font-weight: 700; color: var(--x-blue); }
 .b-footer__item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; color: var(--x-text); font-weight: 500; line-height: 1.45; }
@@ -240,7 +240,7 @@ section[id] { scroll-margin-top: 90px; }
 .b-footer__bottom > span { font-size: 14px; font-weight: 300; text-align: center; }
 /* Footer móvil: contacto centrado + colapsables con slide (700ms, como Divi) */
 .b-footer__mobile, .b-footer__copybar { display: none; }
-.b-footer__mcontact { display: grid; justify-items: center; gap: 4px; margin-bottom: 36px; text-align: center; }
+.b-footer__mcontact { display: grid; justify-items: center; gap: 4px; margin-bottom: 16px; text-align: center; }
 .b-footer__mcontact .b-footer__title { margin-bottom: 8px; }
 .b-footer__mcontact a { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--x-navy); }
 .b-footer__mcontact svg { width: 14px; height: 14px; }
@@ -300,7 +300,7 @@ section[id] { scroll-margin-top: 90px; }
   .b-footer__top-inner { grid-template-columns: 1fr; justify-items: center; text-align: center; }
   .b-footer__social { justify-content: center; }
   .b-footer__top { padding: 45px 0 20px; }
-  .b-footer__main { padding: 60px 0 25px; }
+  .b-footer__main { padding: 10px 0; }
   .b-footer__cols, .b-footer__bottom { display: none; }
   .b-footer__mobile, .b-footer__copybar { display: block; }
   .b-dialog__times { grid-template-columns: 1fr 1fr 1fr; }
